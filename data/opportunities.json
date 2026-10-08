@@ -1,0 +1,83 @@
+[
+  {
+    "id": "kaist-scholarship",
+    "title": "KAIST Scholarship",
+    "organization": "KAIST",
+    "category": "Scholarship",
+    "level": "Undergraduate",
+    "location": "South Korea",
+    "funding": "Full tuition + living expenses + medical insurance",
+    "deadline": "2026-10-22",
+    "status": "Open",
+    "eligibility": "International undergraduate applicants eligible for KAIST international admission",
+    "requirements": [
+      "International student eligibility",
+      "High school graduation requirements",
+      "KAIST undergraduate admission application"
+    ],
+    "official_url": "https://admission.kaist.ac.kr/intl-undergraduate/",
+    "application_url": "https://admission.kaist.ac.kr/intl-undergraduate/application/",
+    "last_verified": "2026-10-08"
+  },
+  {
+    "id": "mext-undergraduate",
+    "title": "MEXT Scholarship – Undergraduate",
+    "organization": "Government of Japan",
+    "category": "Scholarship",
+    "level": "Undergraduate",
+    "location": "Japan",
+    "funding": "Government scholarship",
+    "deadline": "Check local Japanese Embassy",
+    "status": "Next cycle",
+    "eligibility": "International students meeting MEXT undergraduate eligibility requirements",
+    "requirements": [
+      "12 years of school education or equivalent",
+      "Meet age requirements",
+      "Embassy screening"
+    ],
+    "official_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+    "application_url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+    "last_verified": "2026-10-08"
+  },
+  {
+    "id": "turkiye-scholarships",
+    "title": "Türkiye Scholarships",
+    "organization": "Government of Türkiye",
+    "category": "Scholarship",
+    "level": "Undergraduate",
+    "location": "Türkiye",
+    "funding": "Tuition + accommodation + health insurance + university placement",
+    "deadline": "2026-02-20",
+    "status": "Closed – next cycle",
+    "eligibility": "International students from all countries",
+    "requirements": [
+      "Academic qualifications",
+      "Program-specific eligibility",
+      "Online application"
+    ],
+    "official_url": "https://www.turkiyeburslari.gov.tr/",
+    "application_url": "https://www.turkiyeburslari.gov.tr/",
+    "last_verified": "2026-10-08"
+  },
+  {
+    "id": "stipendium-hungaricum",
+    "title": "Stipendium Hungaricum Scholarship Programme",
+    "organization": "Government of Hungary",
+    "category": "Scholarship",
+    "level": "Undergraduate",
+    "location": "Hungary",
+    "funding": "Government scholarship",
+    "deadline": "2026-01-25",
+    "status": "Closed – next cycle",
+    "eligibility": "Applicants from eligible partner countries, including Bangladesh",
+    "requirements": [
+      "Academic certificates",
+      "Program-specific requirements",
+      "Online application",
+      "Country nomination requirements"
+    ],
+    "official_url": "https://stipendiumhungaricum.hu/",
+    "application_url": "https://apply.stipendiumhungaricum.hu/",
+    "last_verified": "2026-10-08"
+  }
+]
