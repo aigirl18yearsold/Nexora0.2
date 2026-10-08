@@ -11,7 +11,6 @@ def home():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nexora — Discover Your Next Opportunity</title>
 
     <style>
@@ -34,9 +33,6 @@ def home():
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #e8eaf2;
-            position: sticky;
-            top: 0;
-            z-index: 10;
         }
 
         .logo {
@@ -56,7 +52,7 @@ def home():
 
         .hero {
             text-align: center;
-            padding: 70px 20px 50px;
+            padding: 65px 20px 45px;
         }
 
         .hero h1 {
@@ -101,7 +97,6 @@ def home():
             padding: 0 22px;
             border-radius: 10px;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .section {
@@ -153,6 +148,59 @@ def home():
             line-height: 1.4;
         }
 
+        .scholarships {
+            display: none;
+            max-width: 1100px;
+            margin: 20px auto 70px;
+            padding: 0 20px;
+        }
+
+        .scholarships h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #667085;
+            margin-bottom: 25px;
+        }
+
+        .opportunity {
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid #e9ebf3;
+        }
+
+        .opportunity h3 {
+            margin-bottom: 8px;
+        }
+
+        .opportunity p {
+            color: #667085;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-right: 6px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #4f46e5;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -194,7 +242,7 @@ def home():
     <a href="#" class="nav-button">Sign In</a>
 </nav>
 
-<section class="hero">
+<section class="hero" id="home">
 
     <h1>Discover Your <span>Next Opportunity.</span></h1>
 
@@ -204,22 +252,19 @@ def home():
     </p>
 
     <div class="search-box">
-        <input
-            type="text"
-            placeholder="Search scholarships, hackathons, research..."
-        >
+        <input type="text" placeholder="Search scholarships, hackathons, research...">
         <button>Search</button>
     </div>
 
 </section>
 
-<section class="section">
+<section class="section" id="categories">
 
     <h2>Explore Opportunities</h2>
 
     <div class="categories">
 
-        <a href="#" class="card">
+        <a href="#scholarships" class="card" onclick="showScholarships()">
             <div class="icon">🎓</div>
             <h3>Scholarships</h3>
             <p>Find financial support for your education.</p>
@@ -271,9 +316,77 @@ def home():
 
 </section>
 
+
+<section class="scholarships" id="scholarships">
+
+    <div class="back" onclick="goHome()">← Back to opportunities</div>
+
+    <h2>🎓 Scholarships</h2>
+
+    <p class="subtitle">
+        Explore scholarships and financial opportunities for students.
+    </p>
+
+    <div class="opportunity">
+        <h3>Global Undergraduate Scholarship</h3>
+        <p>
+            Financial support opportunity for talented students
+            planning undergraduate study.
+        </p>
+
+        <span class="tag">Undergraduate</span>
+        <span class="tag">International</span>
+        <span class="tag">Financial Aid</span>
+    </div>
+
+    <div class="opportunity">
+        <h3>STEM Student Scholarship</h3>
+        <p>
+            Scholarship opportunity for students interested in
+            science, technology, engineering and mathematics.
+        </p>
+
+        <span class="tag">STEM</span>
+        <span class="tag">Students</span>
+        <span class="tag">Scholarship</span>
+    </div>
+
+    <div class="opportunity">
+        <h3>Future Leaders Scholarship</h3>
+        <p>
+            Support for students demonstrating leadership,
+            community involvement and academic potential.
+        </p>
+
+        <span class="tag">Leadership</span>
+        <span class="tag">International</span>
+    </div>
+
+</section>
+
+
 <footer>
     <p>© 2026 Nexora — Discover. Build. Grow.</p>
 </footer>
+
+
+<script>
+
+function showScholarships() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("categories").style.display = "none";
+    document.getElementById("scholarships").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+function goHome() {
+    document.getElementById("scholarships").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("categories").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+</script>
 
 </body>
 </html>
