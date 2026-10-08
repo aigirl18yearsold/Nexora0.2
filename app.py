@@ -1,3 +1,4 @@
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -309,4 +310,216 @@ footer {
 
 <div class="categories">
 
-<a href="#scholarships"
+<a href="#scholarships" class="card"
+onclick="showScholarships()">
+<div class="icon">🎓</div>
+<h3>Scholarships</h3>
+<p>Find financial support for your education.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">🏆</div>
+<h3>Competitions</h3>
+<p>Discover challenges where your skills can shine.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">💻</div>
+<h3>Hackathons</h3>
+<p>Build, compete and solve real-world problems.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">🔬</div>
+<h3>Research</h3>
+<p>Explore research programs and opportunities.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">💼</div>
+<h3>Internships</h3>
+<p>Find opportunities to gain real experience.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">🥇</div>
+<h3>Olympiads</h3>
+<p>Discover academic and STEM competitions.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">🌎</div>
+<h3>Global Programs</h3>
+<p>Explore international student opportunities.</p>
+</a>
+
+<a href="#" class="card">
+<div class="icon">✨</div>
+<h3>Featured</h3>
+<p>See opportunities selected for Nexora users.</p>
+</a>
+
+</div>
+</section>
+
+
+<section class="scholarships" id="scholarships">
+
+<div class="back" onclick="goHome()">← Back to opportunities</div>
+
+<h2>🎓 Scholarships</h2>
+
+<p class="subtitle">
+Explore scholarships and financial opportunities for students.
+</p>
+
+<div class="opportunity">
+
+<h3>Global Undergraduate Scholarship</h3>
+
+<p>
+Financial support opportunity for talented students
+planning undergraduate study.
+</p>
+
+<span class="tag">Undergraduate</span>
+<span class="tag">International</span>
+<span class="tag">Financial Aid</span>
+
+<br>
+
+<a class="view-button"
+onclick="showDetails()">
+View Details →
+</a>
+
+</div>
+
+
+<div class="opportunity">
+
+<h3>STEM Student Scholarship</h3>
+
+<p>
+Scholarship opportunity for students interested in
+science, technology, engineering and mathematics.
+</p>
+
+<span class="tag">STEM</span>
+<span class="tag">Students</span>
+<span class="tag">Scholarship</span>
+
+</div>
+
+
+<div class="opportunity">
+
+<h3>Future Leaders Scholarship</h3>
+
+<p>
+Support for students demonstrating leadership,
+community involvement and academic potential.
+</p>
+
+<span class="tag">Leadership</span>
+<span class="tag">International</span>
+
+</div>
+
+</section>
+
+
+<section class="details" id="details">
+
+<div class="back" onclick="showScholarships()">
+← Back to scholarships
+</div>
+
+<div class="details-box">
+
+<h1>Global Undergraduate Scholarship</h1>
+
+<p>
+A scholarship opportunity designed to support talented
+students pursuing undergraduate education.
+</p>
+
+<h3>🎓 Level</h3>
+<p>Undergraduate</p>
+
+<h3>🌎 Location</h3>
+<p>International</p>
+
+<h3>💰 Funding</h3>
+<p>Financial support for eligible students.</p>
+
+<h3>📅 Deadline</h3>
+<p>Check the official opportunity website for the current deadline.</p>
+
+<h3>👤 Eligibility</h3>
+<p>
+Eligibility depends on the specific scholarship requirements.
+Applicants should verify all requirements before applying.
+</p>
+
+<h3>📋 Application</h3>
+<p>
+Nexora will provide the official application source
+once the opportunity has been verified.
+</p>
+
+<a href="#" class="apply-button">
+Official Apply →
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 Nexora — Discover. Build. Grow.</p>
+</footer>
+
+
+<script>
+
+function showScholarships() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("categories").style.display = "none";
+    document.getElementById("details").style.display = "none";
+    document.getElementById("scholarships").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+
+function showDetails() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("categories").style.display = "none";
+    document.getElementById("scholarships").style.display = "none";
+    document.getElementById("details").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+
+function goHome() {
+
+    document.getElementById("details").style.display = "none";
+    document.getElementById("scholarships").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("categories").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+</script>
+
+</body>
+</html>
+"""
+
+
