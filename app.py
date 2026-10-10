@@ -1165,10 +1165,14 @@ def home():
     rows.sort(key=(lambda o:(o["category"],o["title"].lower())) if sort=="category" else (lambda o:o["title"].lower()))
     return page(HOME, items=rows, q=request.args.get("q",""), category=category, sort=sort, chosen_interest=chosen_interest)
     @app.route("/opportunity/<int:item_id>")
-    def opportunity(item_id):
+def opportunity(item_id):
 def opportunity(item_id):
     o=next((x for x in all_items() if int(x["id"])==item_id),None)
     if not o: return redirect(url_for("home"))
+
+
+
+    
     return page(DETAIL, title=o["title"], o=o)
 
 @app.route("/signup", methods=["GET","POST"])
