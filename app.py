@@ -809,7 +809,7 @@ SEED_ITEMS = [
     "deadline": "Annual cycle; check page",
     "status": "Check official page",
     "eligibility": "U.S. residency/citizenship and other restrictions may apply",
-    "official_url": "https://simr.stanford.edu/,
+    "official_url": "https://simr.stanford.edu/",
       "interests": [
       "Research & Academics"
     ]
