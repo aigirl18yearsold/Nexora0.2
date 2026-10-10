@@ -93,3 +93,57 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple
 header{position:sticky;top:0;z-index:5;background:#ffffffed;border-bottom:1px solid var(--line)}.nav{max-width:1160px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-weight:900;font-size:22px;color:var(--purple)}.logo span{color:var(--ink)}.muted{color:var(--muted);font-size:13px;line-height:1.5}
 main{max-width:1160px;margin:auto;padding:24px 20px 55px}.hero{background:linear-gradient(125deg,#1d2751,#4934a4 62%,#8466ff);border-radius:26px;color:white;padding:clamp(25px,6vw,60px)}
 .eyebrow{text-transform:uppercase;font-weight:800;letter-spacing:2px;font-size:11px;opacity:.8}.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.05;letter-spacing:-1.7px;max-width:720px;margin:16px 0}.hero p{max-width:650px;line-height:1.7;color:#e2e4ff}
+.search{display:flex;gap:8px;max-width:720px;margin-top:23px}input,select{font:inherit;border:1px solid var(--line);border-radius:12px;padding:13px;background:white;color:var(--ink);min-width:0}.search input{flex:1;border:0}
+.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--purple);color:white;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px}.hero .btn{background:white;color:#38268d}
+.head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:32px 0 15px}.head h2{font-size:24px;margin:0;letter-spacing:-.5px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cat{border:1px solid var(--line);background:white;border-radius:16px;padding:17px;text-align:left;cursor:pointer;color:var(--ink);font:inherit}.cat.active,.cat:hover{border-color:#a99aff;box-shadow:0 7px 22px #4934a414}.cat .emoji{font-size:24px}.cat strong{display:block;margin:8px 0 4px}.cat small{color:var(--muted)}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.toolbar input{flex:1;min-width:180px}.toolbar select{min-width:150px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;display:flex;flex-direction:column;min-height:260px;box-shadow:0 5px 18px #1b2b4d05}.pill{display:inline-flex;align-self:flex-start;padding:5px 9px;border-radius:99px;background:#f0edff;color:#5139c4;font-size:11px;font-weight:800}.card h3{font-size:18px;line-height:1.3;margin:13px 0 6px}.org{font-size:12px;color:var(--muted)}.meta{margin:13px 0;display:grid;gap:7px;font-size:12px;color:#46516d}.bottom{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}.btn.secondary{background:#f0edff;color:#4b36b6}.btn.small{font-size:12px;padding:10px 12px}.empty{background:white;border:1px dashed #cdd4e5;padding:30px;border-radius:17px;color:var;padding:30px;border-radius:17px;color:var(--muted);text-align:center;grid-column:1/-1}
+footer{border-top:1px solid var(--line);padding:22px 15px;text-align:center;color:var(--muted);font-size:12px}.modalback{display:none;position:fixed;inset:0;background:#111a33a8;z-index:10;padding:18px;overflow:auto}.modal{background:white;border-radius:20px;max-width:650px;margin:5vh auto;padding:24px}.close{float:right;border:0;background:#f0f2f8;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}.row{padding:12px 0;border-bottom:1px solid var(--line)}.row strong{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:18px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.categories{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){main{padding:14px 12px 40px}.nav{padding:13px}.hero{border-radius:20px}.search{flex-direction:column}.grid{grid-template-columns:1fr}.head{align-items:start;flex-direction:column}.toolbar input,.toolbar select{width:100%}}
+</style></head><body>
+<header><div class="nav"><div class="logo">🚀 Nexora<span> 0.2</span></div><small class="muted">Discover your next opportunity</small></div></header>
+<main><section class="hero"><div class="eyebrow">Your next step starts here</div><h1>Discover Your Next Opportunity.</h1>
+<p>Explore scholarships, competitions, internships and research programs. Read the details, then apply directly through the official organizer.</p>
+<div class="search"><input id="heroSearch" placeholder="Search AI, scholarship, coding, research..." aria-label="Search opportunities"><button class="btn" onclick="runSearch()">Search opportunities →</button></div></section>
+<div class="head"><div><h2>Explore categories</h2><div class="muted">Choose what you want to discover.</div></div><span class="muted" id="total"></span></div>
+<div class="categories">
+button class="cat active" data-cat="All" onclick="choose('All')"><span class="emoji">✨</span><strong>All opportunities</strong><small>Browse everything</small></button>
+<button class="cat" data-cat="Scholarship" onclick="choose('Scholarship')"><span class="emoji">🎓</span><strong>Scholarships</strong><small>Funding and study</small></button>
+<button class="cat" data-cat="Competition" onclick="choose('Competition')"><span class="emoji">🏆</span><strong>Competitions</strong><small>Show your skills</small></button>
+<button class="cat" data-cat="Internship / Research" onclick="choose('Internship / Research')"><span class="emoji">🔬</span><strong>Internships & research</strong><small>Build experience</small></button>
+</div>
+<div class="head"><div><h2 id="listTitle">All opportunities</h2><div class="muted">Confirm dates, fees, and eligibility on the official website.</div></div></div>
+<div class="toolbar"><input id="q" placeholder="Search title, country, skill or eligibility..." oninput="render()"><select id="status" onchange="render()"><option value="">All status labels</option><option>Open / upcoming — verify details</option><option>Check official page</option></select><select id="sort" onchange="render()"><option value="title">Sort: A–Z</option><option value="category">Sort: Category</option></select></div>
+<div class="grid" id="cards"></div>
+<p class="note">Nexora is an independent discovery directory and is not affiliated with listed organizations. A listing does not guarantee eligibility, selection, funding, or that applications are open. Always read the organizer’s rules. Never pay a third party claiming to guarantee selection.</p>
+</main><footer>© Nexora 0.2 · Discover. Learn. Build. Apply through official sources.</footer>
+<div class="modalback" id="back" onclick="backdrop(event)"><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="details"></div></div></div>
+<script>
+const opportunities = __DATA__;
+let category="All";
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function choose(c){category=c;document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b.dataset.cat===c));document.getElementById("listTitle").textContent=c==="All"?"All opportunities":c==="Internship / Research"?"Internships & research":c+" "s";render();}
+function runSearch(){document.getElementById("q").value=document.getElementById("heroSearch").value;render();document.getElementById("cards").scrollIntoView({behavior:"smooth"});}
+function render(){
+ let q=document.getElementById("q").value.trim().toLowerCase(),s=document.getElementById("status").value;
+ let rows=opportunities.filter(o=>(category==="All"||o.category===category)&&(!s||o.status===s)&&(!q||Object.values(o).join(" ").toLowerCase().includes(q)));
+ rows.sort((a,b)=>document.getElementById("sort").value==="category"?(a.category+a.title).localeCompare(b.category+b.title):a.title.localeCompare(b.title));
+ document.getElementById("total").textContent=opportunities.length+" listings";
+ document.getElementById("cards").innerHTML=rows.length?rows.map(o=>`<article class="card"><span class="pill">${esc(o.category)}</span><h3>${esc(o.title)}</h3><div class="org">${esc(o.organization)} · ${esc(o.location)}</div><div class="meta"><div>🎯 ${esc(o.level)}</div><div>💰 ${esc(o.funding)}</div><div>📅 ${esc(o.deadline)}</div><div>ℹ️ ${esc(o.status)}</div></div><div class="bottom"><button class="btn secondary small" onclick="detail('${esc(o.id)}')">View details</button><a class="btn small" href="${esc(o.official_url)}" target="_blank" rel="noopener noreferrer">Official page ↗</a></div></article>`).join(""):'<div class="empty">No matches found. Try another keyword or category.</div>';
+}
+function detail(id){let o=opportunities.find(x=>x.id===id);if(!o)return;let fields=[["Organization",o.organization],["Category",o.category],["Location",o.location],["Level",o.level],["Funding / benefits",o.funding],["Deadline / cycle",o.deadline],["Status",o.status],["Eligibility notes",o.eligibility]];
+document.getElementById("details").innerHTML=`<span class="pill">${esc(o.category)}</span><h2>${esc(o.title)}</h2><div class="org">${esc(o.organization)}</div>${fields.map(([k,v])=>`<div class="row"><strong>${esc(k)}</strong>${esc(v)}</div>`).join("")}<p class="note">These notes are a starting point, not a guarantee of eligibility. Confirm the latest rules and dates on the official page.</p><a class="btn" href="${esc(o.official_url)}" target="_blank" rel="noopener noreferrer">Open official page ↗</a>`;
+document.getElementById("back").style.display="block";document.body.style.overflow="hidden";}
+function closeModal(){document.getElementById("back").style.display="none";document.body.style.overflow="";}
+function backdrop(e){if(e.target.id==="back")closeModal();}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});render();
+</script></body></html>"""
+
+@app.route("/")
+def home():
+    return render_template_string(PAGE.replace("__DATA__", json.dumps(ITEMS, ensure_ascii=False)))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
