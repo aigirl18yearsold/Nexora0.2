@@ -1,525 +1,95 @@
-
-from flask import Flask
+from flask import Flask, render_template_string
+import json
 
 app = Flask(__name__)
 
+# Real program pages. Dates and eligibility change; confirm on the official site.
+# Format: title, organization, category, location, level, funding/benefit, cycle/status, eligibility note, official URL
+DATA = [
+# 20 SCHOLARSHIPS
+("KAIST International Undergraduate Scholarship","KAIST","Scholarship","South Korea","Undergraduate","Full tuition + monthly allowance + insurance","Check current admissions cycle","International undergraduate applicants; scholarship considered with admission","https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist"),
+("MEXT Undergraduate Scholarship","Government of Japan","Scholarship","Japan","Undergraduate","Government-funded; terms vary by track","Check Japanese Embassy page","International students; apply through the current country-specific route","https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/"),
+("Global Korea Scholarship (GKS-U)","Government of Korea","Scholarship","South Korea","Undergraduate","Tuition, airfare, language training and allowance per official terms","2027 notice published; verify current route","International applicants; check the current guidelines and Bangladesh notices","https://www.studyinkorea.go.kr/"),
+("Türkiye Scholarships","Government of Türkiye","Scholarship","Türkiye","Undergraduate / Graduate","Tuition, stipend, accommodation, insurance and travel per program","Usually Jan–Feb; check next cycle","International applicants meeting program age and academic criteria","https://www.turkiyeburslari.gov.tr/"),
+("Stipendium Hungaricum","Government of Hungary","Scholarship","Hungary","Undergraduate / Graduate","Tuition support and other benefits per call","Check next call","Eligibility depends on sending-partner country and current call","https://stipendiumhungaricum.hu/apply/"),
+("Reach Oxford Scholarship","University of Oxford","Scholarship","United Kingdom","Undergraduate","Course fees, living costs and one return airfare for eligible students","Check official cycle","For eligible students from low-income countries; very limited awards","https://www.ox.ac.uk/admissions/undergraduate/fees-and-funding/oxford-support/reach-oxford-scholarship"),
+("Cambridge Trust Scholarships","Cambridge Trust","Scholarship","United Kingdom","Undergraduate / Graduate","Varies by award","Check official page","Eligibility and funding vary; undergraduate awards are limited","https://www.cambridgetrust.org/scholarships/"),
+("MIT Undergraduate Financial Aid","Massachusetts Institute of Technology","Scholarship","United States","Undergraduate","Need-based aid; international students eligible","Apply with admission/aid materials","Not a separate merit scholarship; review MIT's current aid instructions","https://sfs.mit.edu/undergraduate-students/financial-aid/"),
+("Harvard College Financial Aid","Harvard University","Scholarship","United States","Undergraduate","Need-based financial aid","Apply with admission/aid materials","International applicants may apply for need-based aid","https://college.harvard.edu/financial-aid"),
+("Princeton Undergraduate Financial Aid","Princeton University","Scholarship","United States","Undergraduate","Need-based aid","Apply with admission/aid materials","International applicants may apply; admission is highly selective","https://admission.princeton.edu/cost-aid"),
+("Yale Undergraduate Financial Aid","Yale University","Scholarship","United States","Undergraduate","Need-based aid","Apply with admission/aid materials","International applicants may apply for need-based aid","https://admissions.yale.edu/financial-aid"),
+("Amherst College Financial Aid","Amherst College","Scholarship","United States","Undergraduate","Need-based aid","Check official page","International students can apply for financial aid","https://www.amherst.edu/admission/financial_aid"),
+("Bowdoin College Financial Aid","Bowdoin College","Scholarship","United States","Undergraduate","Need-based aid","Check official page","Review current international applicant and aid policies","https://www.bowdoin.edu/admissions/tuition-aid/"),
+("Lester B. Pearson International Scholarship","University of Toronto","Scholarship","Canada","Undergraduate","Tuition, books, incidental fees and residence support per award","Check current cycle","International high-school students; school nomination required","https://future.utoronto.ca/pearson/about/"),
+("Global Futures Scholarships","University of Manchester","Scholarship","United Kingdom","Undergraduate / Master's","Partial merit awards; amount varies","2027 entry page available; check country deadline","Bangladesh is listed among eligible countries; course offer required","https://www.manchester.ac.uk/study/international/finance-and-scholarships/funding/global-futures-scholarship/"),
+("Vice-Chancellor's International Scholarship","Newcastle University","Scholarship","United Kingdom","Undergraduate","£7,000 per academic year (2027 entry page)","Awards considered through the cycle","Bangladesh is among eligible domiciles; course/offer rules apply","https://www.ncl.ac.uk/undergraduate/fees-funding/scholarships-bursaries/vc-international/"),
+("Undergraduate International Excellence Scholarship","Cardiff University","Scholarship","United Kingdom","Undergraduate","£10,000 tuition discount (2027 entry)","2 April 2027 listed; verify official page","Eligible international students holding an offer; conditions apply","https://www.cardiff.ac.uk/study/international/funding-and-fees/international-scholarships/undergraduate-excellence-scholarships"),
+("Vice-Chancellor's Undergraduate International Scholarship","Cardiff University","Scholarship","United Kingdom","Undergraduate","£3,500–£5,000 tuition discount (2027 entry)","30 June 2027 listed; verify official page","Eligible overseas-fee students; country/course rules apply","https://www.cardiff.ac.uk/study/international/funding-and-fees/international-scholarships/vice-chancellors-international-scholarship-ug"),
+("South Asia Scholarship","London Metropolitan University","Scholarship","United Kingdom","Undergraduate / Master's","Tuition discount; terms vary","Check current entry cycle","Bangladesh and other South Asian citizenships; deposit and course conditions apply","https://www.londonmet.ac.uk/applying/funding-your-studies/scholarships/south-asia-scholarships/"),
+("Egyptian Government / Al-Azhar Scholarships","Bangladesh Ministry of Education","Scholarship","Egypt","Undergraduate / Islamic studies","Varies by official notice","Check latest Bangladesh ministry notice","Bangladeshi applicants; eligibility depends on the current official notice","https://shed.gov.bd/pages/moedu-scholarships/"),
 
-@app.route("/")
-def home():
-    return """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+# 20 COMPETITIONS
+("Conrad Challenge","Conrad Foundation / U.S. Space & Rocket Center","Competition","Global","High-school teams","Prizes and recognition vary by track","2026–27 Activation Stage ends 30 Oct 2026","International student teams; check team, fee and submission rules","https://conrad.spacecenter.org/"),
+("Technovation Challenge","Technovation","Competition","Global / virtual","Ages 8–18","Awards and global recognition","2026–27 season starts October 2026; verify registration","Free competition and curriculum; age and team rules apply","https://technovationchallenge.org/competition/"),
+("GENIUS Olympiad","Terra Science and Education","Competition","Global","Grades 8–12","Awards; some scholarship/publication opportunities","Check 2027 registration and country route","High-school projects in environment-related fields","https://geniusolympiad.org/"),
+("DSH Hacks V2 — AI × Healthcare","NXT Horizon / STEMise","Competition","Online / global","Student builders","In-kind prizes listed by organizer","Listed closing date 24 Oct 2026; verify event page","Student builders worldwide; read official rules","https://nxthorizon.org/competitions"),
+("Neighborhood Hacks 2026","Neighborhood Hacks","Competition","Virtual / global","High school students","Organizer lists prizes","16–24 Oct 2026 listed","High-school students worldwide; verify registration and team rules","https://neighborhoodhacks.org/"),
+("World Challenger — Global IT, IoT & AI Challenge","World Challenger","Competition","Online / global","Grades 5–12 school teams","Awards vary","Check next official cycle","School teams worldwide; school participation rules apply","https://www.worldchallenger.org/"),
+("International Computer Science Competition","ICSC","Competition","Global / online","Middle school, high school and university","Certificates/awards vary","2026 concluded; watch next edition","All countries; age division and computer access required","https://icscompetition.org/en/"),
+("International Software Engineering Olympiad","ISWEO","Competition","Online / global","Grades 9–12 or recent graduates","Awards vary","Check next cycle; 2026 qualifier has passed","Organizer lists worldwide eligibility for grades 9–12/recent graduates, age 21 or younger","https://www.isweo.org/"),
+("LBX Global Innovation Competition","LBX","Competition","Global","Middle and high school","Regional/global showcases","Check 2026 season details","Check age, team, guardian and travel rules","https://www.lbx.org/"),
+("Sigma Olympics","Sigma Olympics","Competition","Global","School students","Medals/certificates per organizer","2026–27 registration Sep–Jan; verify country representative","Country representative and grade rules determine eligibility","https://sigmaolympics.com/"),
+("STEMCo","STEMCo","Competition","International","School students","Awards vary","Science rounds Dec 2026 / Jan 2027 listed; verify registration","Maths, science and English divisions; travel/fees may apply","https://stemco.org/"),
+("XPERTSTEM International STEM Competition","XPERTSTEM","Competition","International","Grades 3–12","Awards vary","2026–27 calendar on official site","Grade and event rules; in-person finals may require travel","https://xpertstem.org/"),
+("Breakthrough Junior Challenge","Breakthrough Prize Foundation","Competition","Global","Ages 13–18","Scholarship and prizes","Check next official cycle","Science explanation video; confirm current age and submission rules","https://breakthroughjuniorchallenge.org/"),
+("Diamond Challenge","University of Delaware Horn Entrepreneurship","Competition","Global","High-school entrepreneurs","Cash prizes/awards vary","Check 2026–27 cycle","High-school teams; track and team rules apply","https://diamondchallenge.org/"),
+("Blue Ocean Student Entrepreneur Competition","Blue Ocean Entrepreneurship","Competition","Global","High school students","Cash prizes and recognition","Check next cycle","High-school students; pitch/video format","https://blueoceancompetition.org/"),
+("Congressional App Challenge","U.S. House of Representatives","Competition","United States","Middle/high school","Recognition varies by district","Annual; check district deadline","Only eligible students in participating U.S. congressional districts","https://www.congressionalappchallenge.us/"),
+("Regeneron International Science and Engineering Fair","Society for Science","Competition","International","Grades 9–12","Awards vary","2027 fair dates listed; qualification required","Must qualify through an affiliated fair; local rules apply","https://www.societyforscience.org/isef/"),
+("Regeneron Science Talent Search","Society for Science","Competition","United States","High-school seniors","Major research awards","2026 cycle deadline listed as 5 Nov 2026; verify rules","U.S. high-school seniors meeting citizenship/residency requirements; not global direct entry","https://www.societyforscience.org/regeneron-sts/"),
+("National High School Big Data & AI Challenge","STEM Fellowship","Competition","Canada / international details vary","High school / CEGEP","Research and conference opportunities","Registration deadline listed as 18 Oct 2026; confirm fees","High school/CEGEP; participation may involve fees and travel","https://www.stemfellowship.org/hsbdc/2026-27"),
+("International Astronomy and Astrophysics Competition","IAAC","Competition","International / online","School and university students","Awards and certificates vary","Check current annual cycle","International participants; age and round rules apply","https://iaac.space/"),
+("NASA Space Apps Challenge","NASA and global local hosts","Competition","Global / hybrid","All ages; team rules apply","Awards and recognition vary","Annual event; check next registration","Participation depends on local/global event rules and internet access","https://www.spaceappschallenge.org/"),
 
-<title>Nexora — Opportunities</title>
+# 20 INTERNSHIPS / RESEARCH / LEARNING PROGRAMS
+("Google Summer of Code","Google","Internship / Research","Global / remote","18+ contributors","Stipend for accepted contributors","Annual cycle; check official page","Open-source mentored project program, not conventional employment","https://summerofcode.withgoogle.com/"),
+("Outreachy Internships","Outreachy","Internship / Research","Remote; eligibility varies","18+","Paid internship stipend","Check next application round","Applicants must meet Outreachy's eligibility rules and round requirements","https://www.outreachy.org/"),
+("MLH Fellowship","Major League Hacking","Internship / Research","Remote / cohort-based","Students and recent graduates","Program terms vary by cohort","Check next cohort","Eligibility, payment and time commitment vary by cohort","https://fellowship.mlh.io/"),
+("MIT PRIMES","MIT","Internship / Research","United States / some remote research","High school students","Research mentorship","Annual application cycle; check page","Specific geographic, grade and research-readiness requirements","https://math.mit.edu/research/highschool/primes/"),
+("MIT Summer Research Program (MSRP)","MIT","Internship / Research","United States","Undergraduates","Research experience; terms vary","Annual; check eligibility","Primarily for eligible undergraduates, not a general high-school internship","https://oge.mit.edu/msrp/"),
+("Research Science Institute (RSI)","Center for Excellence in Education / MIT","Internship / Research","United States","High school students","Research program","Annual cycle; check current dates","Highly selective; international eligibility and travel must be checked","https://www.cee.org/programs/research-science-institute"),
+("Simons Summer Research Program","Stony Brook University","Internship / Research","United States","High school juniors","Research experience","Annual cycle; check page","Restrictions may include residency, grade and application requirements","https://www.stonybrook.edu/simons/"),
+("Stanford SIMR","Stanford University","Internship / Research","United States","High school students","Research program","Annual cycle; check page","U.S. residency/citizenship and other restrictions may apply","https://simr.stanford.edu/"),
+("UCSB Research Mentorship Program","UC Santa Barbara","Internship / Research","United States","High school students","Research mentorship; fees may apply","Annual cycle; check page","Check cost, age, course and visa requirements","https://summer.ucsb.edu/programs/research-mentorship-program"),
+("BU RISE Internship / Practicum","Boston University","Internship / Research","United States","High school students","Research experience; cost/aid vary","Annual cycle; check page","Eligibility, fees and international participation rules apply","https://www.bu.edu/summer/high-school-programs/research-internship/"),
+("Anson L. Clark Scholars Program","Texas Tech University","Internship / Research","United States","High school juniors/seniors","Research program; stipend terms on official page","Annual cycle; check page","Highly selective; check age, grade, citizenship and travel requirements","https://www.depts.ttu.edu/honors/academicsandenrichment/affiliatedandhighschool/clarks/"),
+("Garcia Summer Research Program","Stony Brook University","Internship / Research","United States","High school students","Research program; tuition may apply","Annual cycle; check page","Check program fees and international eligibility","https://www.stonybrook.edu/commcms/garcia/"),
+("SHTEM Summer Internship Program","Stanford University","Internship / Research","United States / details vary","High school students","Research experience","Annual cycle; check page","Eligibility and project availability vary","https://compression.stanford.edu/shtem-summer-internships"),
+("AI4ALL Open Learning","AI4ALL","Internship / Research","Online","High school learners","Free learning resources","Self-paced; check official page","Educational program, not necessarily a paid internship","https://ai-4-all.org/open-learning/"),
+("NASA OSTEM Internships","NASA","Internship / Research","United States","Students","Paid and unpaid roles vary","Multiple cycles; check each posting","Most positions require U.S. citizenship; do not assume international eligibility","https://intern.nasa.gov/"),
+("CERN Student Opportunities","CERN","Internship / Research","Switzerland / varies","University students","Stipend/benefits vary","Multiple programs; check openings","Many roles require university enrollment and specific nationality/education conditions","https://careers.cern/"),
+("UNICEF Internships","UNICEF","Internship / Research","Global / office-specific","Students and recent graduates","Stipend may be provided under program rules","Apply to individual vacancies","Must meet vacancy education, age, language and work-authorization rules","https://www.unicef.org/careers/internships"),
+("World Bank Internship Program","World Bank Group","Internship / Research","Global / office-specific","Graduate students primarily","Paid internship","Seasonal windows; check official page","Designed primarily for graduate students; requirements vary by posting","https://www.worldbank.org/en/about/careers/programs-and-internships"),
+("Pioneer Academics Research Program","Pioneer Academics","Internship / Research","Online / global","High school students","Mentored research; tuition/aid rules apply","Check current cohort","Selective academic research program, not a paid job; confirm fees and financial aid","https://pioneeracademics.com/"),
+("Lumiere Research Scholar Program","Lumiere Education","Internship / Research","Online / global","High school students","Mentored research; tuition/aid rules apply","Check current cohort","Not a paid internship; program fees and financial assistance vary","https://www.lumiere-education.com/"),
+]
 
+ITEMS = []
+for i, row in enumerate(DATA):
+    title, org, category, location, level, funding, cycle, eligibility, url = row
+    ITEMS.append({
+        "id": f"opportunity-{i+1}", "title": title, "organization": org,
+        "category": category, "location": location, "level": level,
+        "funding": funding, "deadline": cycle, "eligibility": eligibility,
+        "official_url": url,
+        "status": "Open / upcoming — verify details" if any(x in cycle.lower() for x in ["2027", "oct 2026", "october 2026", "registration announced", "dec 2026", "jan 2027"]) else "Check official page"
+    })
+
+PAGE = r"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nexora 0.2 — Discover Your Next Opportunity</title>
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f6f8ff;
-    color: #172033;
-}
-
-nav {
-    background: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e8eaf2;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: #4f46e5;
-}
-
-.nav-button {
-    background: #4f46e5;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    text-align: center;
-    padding: 65px 20px 45px;
-}
-
-.hero h1 {
-    font-size: 46px;
-    margin-bottom: 18px;
-}
-
-.hero h1 span {
-    color: #4f46e5;
-}
-
-.hero p {
-    font-size: 19px;
-    color: #667085;
-    max-width: 650px;
-    margin: auto;
-    line-height: 1.6;
-}
-
-.search-box {
-    max-width: 650px;
-    margin: 30px auto 0;
-    display: flex;
-    background: white;
-    padding: 8px;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.search-box input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 15px;
-    font-size: 16px;
-}
-
-.search-box button {
-    border: none;
-    background: #4f46e5;
-    color: white;
-    padding: 0 22px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.section,
-.scholarships,
-.details {
-    max-width: 1100px;
-    margin: 20px auto 70px;
-    padding: 0 20px;
-}
-
-.section h2,
-.scholarships h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 30px;
-}
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.card {
-    background: white;
-    padding: 28px 20px;
-    border-radius: 16px;
-    text-align: center;
-    text-decoration: none;
-    color: #172033;
-    border: 1px solid #e9ebf3;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.icon {
-    font-size: 35px;
-    margin-bottom: 12px;
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.card p,
-.opportunity p {
-    color: #667085;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.scholarships,
-.details {
-    display: none;
-}
-
-.subtitle {
-    color: #667085;
-    margin-bottom: 25px;
-}
-
-.opportunity {
-    background: white;
-    padding: 22px;
-    border-radius: 16px;
-    margin-bottom: 16px;
-    border: 1px solid #e9ebf3;
-}
-
-.opportunity h3 {
-    margin-bottom: 8px;
-}
-
-.opportunity p {
-    margin-bottom: 12px;
-}
-
-.tag {
-    display: inline-block;
-    background: #eef2ff;
-    color: #4f46e5;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 13px;
-    margin: 4px 4px 4px 0;
-}
-
-.view-button {
-    display: inline-block;
-    margin-top: 15px;
-    background: #4f46e5;
-    color: white;
-    padding: 11px 18px;
-    border-radius: 9px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.back {
-    display: inline-block;
-    margin-bottom: 25px;
-    color: #4f46e5;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.details-box {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #e9ebf3;
-}
-
-.details-box h1 {
-    margin-bottom: 12px;
-}
-
-.details-box h3 {
-    margin-top: 25px;
-    margin-bottom: 8px;
-}
-
-.details-box p {
-    color: #667085;
-    line-height: 1.6;
-}
-
-.apply-button {
-    display: inline-block;
-    margin-top: 25px;
-    background: #16a34a;
-    color: white;
-    padding: 14px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #111827;
-    color: #cbd5e1;
-}
-
-@media (max-width: 800px) {
-    .categories {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 500px) {
-    .categories {
-        grid-template-columns: 1fr;
-    }
-
-    .search-box {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .search-box button {
-        padding: 14px;
-    }
-
-    .details-box {
-        padding: 22px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-    <div class="logo">🚀 Nexora</div>
-    <a href="#" class="nav-button">Sign In</a>
-</nav>
-
-<section class="hero" id="home">
-
-    <h1>Discover Your <span>Next Opportunity.</span></h1>
-
-    <p>
-        Find scholarships, competitions, hackathons, research,
-        internships and other opportunities built for ambitious students.
-    </p>
-
-    <div class="search-box">
-        <input type="text"
-        placeholder="Search scholarships, hackathons, research...">
-        <button>Search</button>
-    </div>
-
-</section>
-
-<section class="section" id="categories">
-
-<h2>Explore Opportunities</h2>
-
-<div class="categories">
-
-<a href="#scholarships" class="card"
-onclick="showScholarships()">
-<div class="icon">🎓</div>
-<h3>Scholarships</h3>
-<p>Find financial support for your education.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">🏆</div>
-<h3>Competitions</h3>
-<p>Discover challenges where your skills can shine.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">💻</div>
-<h3>Hackathons</h3>
-<p>Build, compete and solve real-world problems.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">🔬</div>
-<h3>Research</h3>
-<p>Explore research programs and opportunities.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">💼</div>
-<h3>Internships</h3>
-<p>Find opportunities to gain real experience.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">🥇</div>
-<h3>Olympiads</h3>
-<p>Discover academic and STEM competitions.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">🌎</div>
-<h3>Global Programs</h3>
-<p>Explore international student opportunities.</p>
-</a>
-
-<a href="#" class="card">
-<div class="icon">✨</div>
-<h3>Featured</h3>
-<p>See opportunities selected for Nexora users.</p>
-</a>
-
-</div>
-</section>
-
-
-<section class="scholarships" id="scholarships">
-
-<div class="back" onclick="goHome()">← Back to opportunities</div>
-
-<h2>🎓 Scholarships</h2>
-
-<p class="subtitle">
-Explore scholarships and financial opportunities for students.
-</p>
-
-<div class="opportunity">
-
-<h3>Global Undergraduate Scholarship</h3>
-
-<p>
-Financial support opportunity for talented students
-planning undergraduate study.
-</p>
-
-<span class="tag">Undergraduate</span>
-<span class="tag">International</span>
-<span class="tag">Financial Aid</span>
-
-<br>
-
-<a class="view-button"
-onclick="showDetails()">
-View Details →
-</a>
-
-</div>
-
-
-<div class="opportunity">
-
-<h3>STEM Student Scholarship</h3>
-
-<p>
-Scholarship opportunity for students interested in
-science, technology, engineering and mathematics.
-</p>
-
-<span class="tag">STEM</span>
-<span class="tag">Students</span>
-<span class="tag">Scholarship</span>
-
-</div>
-
-
-<div class="opportunity">
-
-<h3>Future Leaders Scholarship</h3>
-
-<p>
-Support for students demonstrating leadership,
-community involvement and academic potential.
-</p>
-
-<span class="tag">Leadership</span>
-<span class="tag">International</span>
-
-</div>
-
-</section>
-
-
-<section class="details" id="details">
-
-<div class="back" onclick="showScholarships()">
-← Back to scholarships
-</div>
-
-<div class="details-box">
-
-<h1>Global Undergraduate Scholarship</h1>
-
-<p>
-A scholarship opportunity designed to support talented
-students pursuing undergraduate education.
-</p>
-
-<h3>🎓 Level</h3>
-<p>Undergraduate</p>
-
-<h3>🌎 Location</h3>
-<p>International</p>
-
-<h3>💰 Funding</h3>
-<p>Financial support for eligible students.</p>
-
-<h3>📅 Deadline</h3>
-<p>Check the official opportunity website for the current deadline.</p>
-
-<h3>👤 Eligibility</h3>
-<p>
-Eligibility depends on the specific scholarship requirements.
-Applicants should verify all requirements before applying.
-</p>
-
-<h3>📋 Application</h3>
-<p>
-Nexora will provide the official application source
-once the opportunity has been verified.
-</p>
-
-<a href="#" class="apply-button">
-Official Apply →
-</a>
-
-</div>
-
-</section>
-
-
-<footer>
-<p>© 2026 Nexora — Discover. Build. Grow.</p>
-</footer>
-
-
-<script>
-
-function showScholarships() {
-
-    document.getElementById("home").style.display = "none";
-    document.getElementById("categories").style.display = "none";
-    document.getElementById("details").style.display = "none";
-    document.getElementById("scholarships").style.display = "block";
-
-    window.scrollTo(0, 0);
-}
-
-
-function showDetails() {
-
-    document.getElementById("home").style.display = "none";
-    document.getElementById("categories").style.display = "none";
-    document.getElementById("scholarships").style.display = "none";
-    document.getElementById("details").style.display = "block";
-
-    window.scrollTo(0, 0);
-}
-
-
-function goHome() {
-
-    document.getElementById("details").style.display = "none";
-    document.getElementById("scholarships").style.display = "none";
-    document.getElementById("home").style.display = "block";
-    document.getElementById("categories").style.display = "block";
-
-    window.scrollTo(0, 0);
-}
-
-</script>
-
-</body>
-</html>
-"""
-
-
+:root{--ink:#17213c;--muted:#64708b;--bg:#f5f7fc;--purple:#6c4cf1;--line:#e5e9f3}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#ffffffed;border-bottom:1px solid var(--line)}.nav{max-width:1160px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-weight:900;font-size:22px;color:var(--purple)}.logo span{color:var(--ink)}.muted{color:var(--muted);font-size:13px;line-height:1.5}
+main{max-width:1160px;margin:auto;padding:24px 20px 55px}.hero{background:linear-gradient(125deg,#1d2751,#4934a4 62%,#8466ff);border-radius:26px
