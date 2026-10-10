@@ -40,7 +40,8 @@ SEED_ITEMS = [
     "deadline": "Check current admissions cycle",
     "status": "Check official page",
     "eligibility": "International undergraduate applicants; scholarship considered with admission",
-    "official_url": "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist",
+    "official_url":
+     "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist",
     "interests": [
       "Technology & AI",
       "Research & Academics"
@@ -83,7 +84,7 @@ SEED_ITEMS = [
     "title": "Türkiye Scholarships",
     "organization": "Government of Türkiye",
     "category": "Scholarships",
-    "location": "Türkiye",
+      "location": "Türkiye",
     "level": "Undergraduate / Graduate",
     "funding": "Tuition, stipend, accommodation, insurance and travel per program",
     "deadline": "Usually Jan–Feb; check next cycle",
@@ -119,8 +120,7 @@ SEED_ITEMS = [
     "level": "Undergraduate",
     "funding": "Course fees, living costs and one return airfare for eligible students",
     "deadline": "Check official cycle",
-    "status": "Check official page",
-    "eligibility": "For eligible students from low-income countries; very limited awards",
+    "status": "Check eligible students from low-income countries; very limited awards",
     "official_url": "https://www.ox.ac.uk/admissions/undergraduate/fees-and-funding/oxford-support/reach-oxford-scholarship",
     "interests": [
       "Research & Academics"
@@ -157,8 +157,9 @@ SEED_ITEMS = [
     "interests": [
       "Technology & AI",
       "Research & Academics"
-    ]
-  },
+]
+
+      },
   {
     "id": "9",
     "title": "Harvard College Financial Aid",
@@ -201,7 +202,7 @@ SEED_ITEMS = [
     "location": "United States",
     "level": "Undergraduate",
     "funding": "Need-based aid",
-    "deadline": "Apply with admission/aid materials",
+      "deadline": "Apply with admission/aid materials",
     "status": "Check official page",
     "eligibility": "International applicants may apply for need-based aid",
     "official_url": "https://admissions.yale.edu/financial-aid",
@@ -285,7 +286,7 @@ SEED_ITEMS = [
     "deadline": "Awards considered through the cycle",
     "status": "Check official page",
     "eligibility": "Bangladesh is among eligible domiciles; course/offer rules apply",
-    "official_url": "https://www.ncl.ac.uk/undergraduate/fees-funding/scholarships-bursaries/vc-international/",
+      "official_url": "https://www.ncl.ac.uk/undergraduate/fees-funding/scholarships-bursaries/vc-international/",
     "interests": [
       "Research & Academics"
     ]
@@ -322,7 +323,7 @@ SEED_ITEMS = [
       "Research & Academics"
     ]
   },
-  {
+    {
     "id": "19",
     "title": "South Asia Scholarship",
     "organization": "London Metropolitan University",
@@ -362,7 +363,7 @@ SEED_ITEMS = [
     "category": "Competitions",
     "location": "Global",
     "level": "High-school teams",
-    "funding": "Prizes and recognition vary by track",
+      "funding": "Prizes and recognition vary by track",
     "deadline": "2026–27 Activation Stage ends 30 Oct 2026",
     "status": "Check official page",
     "eligibility": "International student teams; check team, fee and submission rules",
@@ -401,8 +402,8 @@ SEED_ITEMS = [
     "official_url": "https://geniusolympiad.org/",
     "interests": [
       "Science & STEM"
-    ]
-  },
+]
+      },
   {
     "id": "24",
     "title": "DSH Hacks V2 — AI × Healthcare",
@@ -484,7 +485,7 @@ SEED_ITEMS = [
     "official_url": "https://www.isweo.org/",
     "interests": [
       "Technology & AI",
-      "Science & STEM"
+        "Science & STEM"
     ]
   },
   {
@@ -525,7 +526,7 @@ SEED_ITEMS = [
     "organization": "STEMCo",
     "category": "Competitions",
     "location": "International",
-    "level": "School students",
+      "level": "School students",
     "funding": "Awards vary",
     "deadline": "Science rounds Dec 2026 / Jan 2027 listed; verify registration",
     "status": "Check official page",
@@ -563,7 +564,7 @@ SEED_ITEMS = [
     "status": "Check official page",
     "eligibility": "Science explanation video; confirm current age and submission rules",
     "official_url": "https://breakthroughjuniorchallenge.org/",
-    "interests": [
+      "interests": [
       "Science & STEM"
     ]
   },
@@ -610,7 +611,7 @@ SEED_ITEMS = [
     "funding": "Recognition varies by district",
     "deadline": "Annual; check district deadline",
     "status": "Check official page",
-    "eligibility": "Only eligible students in participating U.S. congressional districts",
+      "eligibility": "Only eligible students in participating U.S. congressional districts",
     "official_url": "https://www.congressionalappchallenge.us/",
     "interests": [
       "General"
@@ -651,8 +652,7 @@ SEED_ITEMS = [
   },
   {
     "id": "39",
-    "title": "National High School Big Data & AI Challenge",
-    "organization": "STEM Fellowship",
+      "organization": "STEM Fellowship",
     "category": "Competitions",
     "location": "Canada / international details vary",
     "level": "High school / CEGEP",
@@ -689,10 +689,11 @@ SEED_ITEMS = [
     "category": "Research",
     "location": "Global / remote",
     "level": "18+ contributors",
+    "funding": "Stipend for accepted contributors",
     "deadline": "Annual cycle; check official page",
     "status": "Check official page",
     "eligibility": "Open-source mentored project program, not conventional employment",
-    "official_url": "https://summerofcode.withgoogle.com/",
+      "official_url": "https://summerofcode.withgoogle.com/",
     "interests": [
       "General"
     ]
@@ -766,7 +767,7 @@ SEED_ITEMS = [
   {
     "id": "46",
     "title": "Research Science Institute (RSI)",
-    "organization": "Center for Excellence in Education / MIT",
+      "organization": "Center for Excellence in Education / MIT",
     "category": "Internships",
     "location": "United States",
     "level": "High school students",
@@ -774,8 +775,7 @@ SEED_ITEMS = [
     "deadline": "Annual cycle; check current dates",
     "status": "Check official page",
     "eligibility": "Highly selective; international eligibility and travel must be checked",
-    "official_url":
-    "https://www.cee.org/programs/research-science-institute",
+    "official_url": "https://www.cee.org/programs/research-science-institute",
     "interests": [
       "Technology & AI",
       "Science & STEM",
@@ -809,8 +809,8 @@ SEED_ITEMS = [
     "deadline": "Annual cycle; check page",
     "status": "Check official page",
     "eligibility": "U.S. residency/citizenship and other restrictions may apply",
-    "official_url": "https://simr.stanford.edu/",
-    "interests": [
+    "official_url": "https://simr.stanford.edu/,
+      "interests": [
       "Research & Academics"
     ]
   },
@@ -861,8 +861,8 @@ SEED_ITEMS = [
     "interests": [
       "Technology & AI",
       "Research & Academics"
-]
-    },
+    ]
+  },
   {
     "id": "52",
     "title": "Garcia Summer Research Program",
@@ -894,7 +894,7 @@ SEED_ITEMS = [
     "interests": [
       "Technology & AI",
       "Research & Academics"
-    ]
+        ]
   },
   {
     "id": "54",
@@ -982,7 +982,7 @@ SEED_ITEMS = [
     "organization": "Pioneer Academics",
     "category": "Research",
     "location": "Online / global",
-    "level": "High school students",
+      "level": "High school students",
     "funding": "Mentored research; tuition/aid rules apply",
     "deadline": "Check current cohort",
     "status": "Check official page",
@@ -1048,7 +1048,7 @@ def init_db():
         if count == 0:
             for o in SEED_ITEMS:
                 con.execute("""INSERT INTO opportunities
-                    (title,organization,category,location,level,funding,deadline,status,eligibility,official_url,interests)
+                   (title,organization,category,location,level,funding,deadline,status,eligibility,official_url,interests)
                     VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
                     (o["title"],o["organization"],o["category"],o["location"],o["level"],o["funding"],
                      o["deadline"],o["status"],o["eligibility"],o["official_url"],json.dumps(o["interests"])))
@@ -1066,7 +1066,7 @@ def all_items():
     return result
 
 def mail_settings_ready():
-  return all(os.environ.get(k) for k in ("SMTP_HOST","SMTP_PORT","SMTP_USER","SMTP_PASSWORD","MAIL_FROM"))
+    return all(os.environ.get(k) for k in ("SMTP_HOST","SMTP_PORT","SMTP_USER","SMTP_PASSWORD","MAIL_FROM"))
 
 def send_email(to, subject, body):
     if not mail_settings_ready():
@@ -1108,8 +1108,7 @@ def login_required(fn):
             return redirect(url_for("login"))
         return fn(*args, **kwargs)
     return wrapped
-
-BASE = r"""
+    BASE = r"""
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title or 'Nexora 0.2 — Discover Your Next Opportunity' }}</title>
 <style>
@@ -1118,9 +1117,10 @@ BASE = r"""
 header{position:sticky;top:0;z-index:5;background:#ffffffed;border-bottom:1px solid var(--line)}.nav{max-width:1160px;margin:auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.logo{font-weight:900;font-size:22px;color:var(--purple);text-decoration:none}.logo span{color:var(--ink)}nav{display:flex;gap:12px;flex-wrap:wrap}nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:650}
 main{max-width:1160px;margin:auto;padding:24px 18px 55px}.muted{color:var(--muted);font-size:13px;line-height:1.5}.hero{background:linear-gradient(125deg,#1d2751,#4934a4 62%,#8466ff);border-radius:26px;color:white;padding:clamp(25px,6vw,58px)}.eyebrow{text-transform:uppercase;font-weight:800;letter-spacing:2px;font-size:11px;opacity:.8}.hero h1{font-size:clamp(32px,6vw,55px);line-height:1.07;letter-spacing:-1.5px;max-width:760px;margin:16px 0}.hero p{max-width:720px;line-height:1.7;color:#e2e4ff}
 h2{letter-spacing:-.5px}.head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}.head h2{font-size:24px;margin:0 0 4px}.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cat{border:1px solid var(--line);background:white;border-radius:16px;padding:17px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;text-decoration:none;display:block}.cat.active,.cat:hover{border-color:#a99aff;box-shadow:0 7px 22px #4934a414}.emoji{font-size:25px}.cat strong{display:block;margin:8px 0 4px}.cat small{color:var(--muted)}
-.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink);min-width:0;width:100%}.;width:100%}.toolbar input{flex:2;min-width:180px}.toolbar select{flex:1;min-width:150px}.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--purple);color:white;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px}.btn.secondary{background:#f0edff;color:#4b36b6}.btn.white{background:white;color:#38268d}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card,.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b2b4d05}.card{display:flex;flex-direction:column;min-height:250px}.pill{display:inline-flex;align-self:flex-start;padding:5px 9px;border-radius:99px;background:#f0edff;color:#5139c4;font-size:11px;font-weight:800}.card h3{font-size:18px;line-height:1.3;margin:13px 0 6px}.org{font-size:12px;color:var(--muted)}.meta{margin:13px 0;display:grid;gap:7px;font-size:12px;color:#46516d}.bottom{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}.empty{background:white;border:1px dashed #cdd4e5;padding:30px;border-radius:17px;color:var(--muted);text-align:center;grid-column:1/-1}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink);min-width:0;width:100%}.toolbar input{flex:2;min-width:180px}.toolbar select{flex:1;min-width:150px}.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--purple);color:white;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:5px}.btn.secondary{background:#f0edff;color:#4b36b6}.btn.white{background:white;color:#38268d}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card,.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:0 5px 18px #1b2b4d05}.card{display:flex;flex-direction:column;min-height:250px}.pill{display:inline-flex;align-self:flex-start;padding:5px 9px;border-radius:99px;background:#f0edff;color:#5139c4;font-size:11px;font-weight:800}.card h3{font-size:18px;line-height:1.3;margin:13px 0 6px}.org{font-size:12px;color:var(--muted)}.meta{margin:13px 0;display:grid;gap:7px;font-size:12px;color:#46516d}.bottom{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}.empty{background:white;border:1px dashed #cdd4e5;padding:30px;border-radius:17px;color:var(--muted);text-align:center;grid-column:1/-1}
 form.stack{display:grid;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.check{display:flex;gap:8px;align-items:center;background:#f7f8fd;border-radius:10px;padding:10px;font-size:13px}.check input{width:auto}.flash{padding:12px 15px;border-radius:12px;margin:12px 0;background:#e9e5ff;color:#35267f}.flash.error{background:#fff0ed;color:#96331e}.note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:18px}footer{border-top:1px solid var(--line);padding:22px 15px;text-align:center;color:var(--muted);font-size:12px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.categories{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){main{padding:14px 12px 40px}.nav{padding:12px}.hero{border-radius:20px}.grid,.categories,.two{grid-template-columns:1fr}.head{align-items:start;flex-direction:column}.toolbar input,.toolbar select{width:100%}}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.categories{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){main{padding:14px 12px
+40px}.nav{padding:12px}.hero{border-radius:20px}.grid,.categories,.two{grid-template-columns:1fr}.head{align-items:start;flex-direction:column}.toolbar input,.toolbar select{width:100%}}
 </style></head><body><header><div class="nav"><a class="logo" href="{{ url_for('home') }}">🚀 Nexora<span> 0.2</span></a><nav><a href="{{ url_for('home') }}">Discover</a><a href="{{ url_for('eligibility') }}">Eligibility match</a><a href="{{ url_for('newsletter') }}">Newsletter</a><a href="{{ url_for('mentorship') }}">Mentorship</a>{% if session.get('user_id') %}<a href="{{ url_for('profile') }}">My profile</a><a href="{{ url_for('logout') }}">Log out</a>{% else %}<a href="{{ url_for('login') }}">Log in</a><a href="{{ url_for('signup') }}">Create account</a>{% endif %}</nav></div></header>
 <main>{% with messages=get_flashed_messages(with_categories=true) %}{% for kind,message in messages %}<div class="flash {{ 'error' if kind=='error' else '' }}">{{ message }}</div>{% endfor %}{% endwith %}{{ content|safe }}</main><footer>© Nexora 0.2 · Discover. Learn. Build. Apply through official sources.</footer></body></html>
 """
@@ -1128,7 +1128,7 @@ form.stack{display:grid;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr
 HOME = r"""
 <section class="hero"><div class="eyebrow">Your next step starts here</div><h1>Discover Your Next Opportunity.</h1><p>Find scholarships, competitions, hackathons, research programs, internships and Olympiads. Filter by your interests, then apply through the official organizer.</p><form action="{{ url_for('home') }}" class="toolbar"><input name="q" value="{{ q }}" placeholder="Search AI, business, science, country, age..." aria-label="Search"><button class="btn white">Search opportunities →</button></form></section>
 <div class="head"><div><h2>Explore categories</h2><div class="muted">Choose a category to filter the real-world opportunity directory.</div></div><span class="muted">{{ items|length }} listings</span></div>
-<div class="categories"><a class="cat {{ 'active' if not category else '' }}" href="{{ url_for('home',q=q) }}"><span class="emoji">✨</span><strong>All opportunities</strong><small>Browse everything</small></a>{% for name,(emoji,desc) in categories.items() %}<a class="cat {{ 'active' if category==name else '' }}" href="{{ url_for('home',category=name,q=q) }}"><span class="emoji">{{ emoji }}</span><strong>{{ name }}</strong><small>{{ desc }}</small></a>{% endfor %}</div>
+div class="categories"><a class="cat {{ 'active' if not category else '' }}" href="{{ url_for('home',q=q) }}"><span class="emoji">✨</span><strong>All opportunities</strong><small>Browse everything</small></a>{% for name,(emoji,desc) in categories.items() %}<a class="cat {{ 'active' if category==name else '' }}" href="{{ url_for('home',category=name,q=q) }}"><span class="emoji">{{ emoji }}</span><strong>{{ name }}</strong><small>{{ desc }}</small></a>{% endfor %}</div>
 <div class="head"><div><h2>{{ category or 'All opportunities' }}</h2><div class="muted">Dates, fees and eligibility can change. Verify them on the official page.</div></div></div>
 <form class="toolbar"><input type="hidden" name="category" value="{{ category }}"><input name="q" value="{{ q }}" placeholder="Search title, country, skill or eligibility"><select name="interest"><option value="">All interests</option>{% for interest in interests %}<option {{ 'selected' if chosen_interest==interest else '' }}>{{ interest }}</option>{% endfor %}</select><select name="sort"><option value="title" {{ 'selected' if sort=='title' else '' }}>Sort: A–Z</option><option value="category" {{ 'selected' if sort=='category' else '' }}>Sort: Category</option></select><button class="btn">Apply filters</button></form>
 <div class="grid">{% for o in items %}<article class="card"><span class="pill">{{ o.category }}</span><h3>{{ o.title }}</h3><div class="org">{{ o.organization }} · {{ o.location }}</div><div class="meta"><div>🎯 {{ o.level }}</div><div>💰 {{ o.funding }}</div><div>📅 {{ o.deadline }}</div><div>ℹ️ {{ o.status }}</div></div><div class="bottom"><a class="btn secondary" href="{{ url_for('opportunity',item_id=o.id) }}">View details</a><a class="btn" href="{{ o.official_url }}" target="_blank" rel="noopener noreferrer">Official page ↗</a></div></article>{% else %}<div class="empty">No matches found. Try another keyword or category.</div>{% endfor %}</div>
@@ -1138,15 +1138,14 @@ DETAIL = r"""<div class="panel"><a href="{{ url_for('home') }}" class="muted">�
 SIGNUP = r"""<div class="panel"><h1>Create your Nexora account</h1><p class="muted">Save your interests and get better opportunity matches.</p><form class="stack" method="post"><label>Your name<input name="name" required maxlength="80"></label><label>Email address<input name="email" type="email" required></label><label>Password (at least 8 characters)<input name="password" type="password" minlength="8" required></label><div class="two"><label>Country<input name="country" value="Bangladesh"></label><label>Age<input name="age" type="number" min="1" max="100" required></label></div><label>Current education level<select name="education"><option>High school student</option><option>Undergraduate</option><option>Graduate</option><option>Other</option></select></label><div><b>Interests</b><div class="checkgrid">{% for i in interests %}<label class="check"><input type="checkbox" name="interests" value="{{ i }}">{{ i }}</label>{% endfor %}</div></div><label>Newsletter frequency<select name="newsletter"><option value="weekly">Weekly</option><option value="daily">Daily (requires scheduled email setup)</option><option value="off">No newsletter</option></select></label><button class="btn">Create account</button></form><p class="muted">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p></div>"""
 LOGIN = r"""<div class="panel"><h1>Log in</h1><form class="stack" method="post"><label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" required></label><button class="btn">Log in</button></form><p class="muted">New to Nexora? <a href="{{ url_for('signup') }}">Create an account</a></p></div>"""
 ELIGIBILITY = r"""<div class="panel"><h1>Find opportunities that may fit you</h1><p class="muted">This is a practical first-pass match, not an official eligibility decision. Always check the organizer's rules.</p><form class="stack" method="post"><div class="two"><label>Age<input name="age" type="number" min="1" max="100" value="{{ age }}" required></label><label>Country<input name="country" value="{{ country or 'Bangladesh' }}" required></label></div><label>Education level<select name="education">{% for e in ['High school student','Undergraduate','Graduate','Other'] %}<option {{ 'selected' if education==e else '' }}>{{ e }}</option>{% endfor %}</select></label><label>Which types do you want? <div class="checkgrid">{% for c in categories %}<label class="check"><input type="checkbox" name="categories" value="{{ c }}" {{ 'checked' if c in chosen_categories else '' }}>{{ c }}</label>{% endfor %}</div></label><label>What are you interested in? <div class="checkgrid">{% for i in interests %}<label class="check"><input type="checkbox" name="interests" value="{{ i }}" {{ 'checked' if i in chosen_interests else '' }}>{{ i }}</label>{% endfor %}</div></label><button class="btn">Find my matches</button></form></div>{% if results is not none %}<div class="head"><div><h2>Possible matches: {{ results|length }}</h2><div class="muted">Matches are based on your choices and listing notes—not a guarantee of eligibility.</div></div></div><div class="grid">{% for o in results %}<article class="card"><span class="pill">{{ o.category }}</span><h3>{{ o.title }}</h3><div class="org">{{ o.organization }}</div><div class="meta"><div>🎯 {{ o.level }}</div><div>📅 {{ o.deadline }}</div><div>Why shown: {{ o.match_reason }}</div></div><div class="bottom"><a class="btn secondary" href="{{ url_for('opportunity',item_id=o.id) }}">View details</a><a class="btn" href="{{ o.official_url }}" target="_blank">Official page ↗</a></div></article>{% else %}<div class="empty">No likely matches with those filters. Try choosing more categories or interests.</div>{% endfor %}</div>{% endif %}"""
-NEWSLETTER = r"""<div class="panel"><h1>Nexora newsletter</h1><p>Get new opportunities and important directory updates by email.</p><p class="muted">Email delivery becomes active after SMTP settings are configured. We don't promise daily delivery until a scheduled job is configured.</p><form class="stack" method="post"><label>Email address<input name="email" type="email" required></label><label>Frequency<select name="frequency"><option value="weekly">Weekly</option><option value="daily">Daily</option></select></label><button class="btn">Subscribe</button></form></div>"""
+NEWSLETTER = r"""<div class = "panel"><h1>Nexora newsletter</h1><p>Get new opportunities and important directory updates by email.</p><p class="muted">Email delivery becomes active after SMTP settings are configured. We don't promise daily delivery until a scheduled job is configured.</p><form class="stack" method="post"><label>Email address<input name="email" type="email" required></label><label>Frequency<select name="frequency"><option value="weekly">Weekly</option><option value="daily">Daily</option></select></label><button class="btn">Subscribe</button></form></div>"""
 PROFILE = r"""<div class="panel"><h1>Hello, {{ user.name }} 👋</h1><p>{{ user.email }} · {{ user.country }} · {{ user.education }}</p><p><b>Your interests:</b> {{ user.interests or 'Not selected' }}</p><p><b>Newsletter:</b> {{ user.newsletter }}</p><a class="btn" href="{{ url_for('eligibility') }}">Find my opportunities</a></div>"""
-ADMIN = r"""<div class="panel"><h1>Add an opportunity</h1><p class="muted">This form saves listings to the database, so you don't need to replace app.py for each new competition. Keep your admin key private.</p><form class="stack" method="post"><input type="hidden" name="key" value="{{ key }}"><label>Opportunity title<input name="title" required></label><label>Organizer<input name="organization" required></label><label>Category<select name="category">{% for c in categories %}<option>{{ c }}</option>{% endfor %}</select></label><div class="two"><label>Location<input name="location" value="Online / global"></label><label>Level / age / grade<input name="level" required></label></div><label>Funding / benefits<input name="funding" value="See official page"></label><label>Deadline / cycle<input name="deadline" value="Check official page"></label><label>Eligibility notes<textarea name="eligibility" rows="3" required></textarea></label><label>Official URL<input name="official_url" type="url" placeholder="https://..." required></label><div class="checkgrid">{% for i in interests %}<label class="check"><input type="checkbox" name="interests" value="{{ i }}">{{ i }}</label>{%endfor %}</div><button class="btn">Save opportunity</button></form></div>"""
-
-
+ADMIN = r"""<div class="panel"><h1>Add an opportunity</h1><p class="muted">This form saves listings to the database, so you don't need to replace app.py for each new competition. Keep your admin key private.</p><form class="stack" method="post"><input type="hidden" name="key" value="{{ key }}"><label>Opportunity title<input name="title" required></label><label>Organizer<input name="organization" required></label><label>Category<select name="category">{% for c in categories %}<option>{{ c }}</option>{% endfor %}</select></label><div class="two"><label>Location<input name="location" value="Online / global"></label><label>Level / age / grade<input name="level" required></label></div><label>Funding / benefits<input name="funding" value="See official page"></label><label>Deadline / cycle<input name="deadline" value="Check official page"></label><label>Eligibility notes<textarea name="eligibility" rows="3" required></textarea></label><label>Official URL<input name="official_url" type="url" placeholder="https://..." required></label><div class="checkgrid">{% for i in interests %}<label class="check"><input type="checkbox" name="interests" value="{{ i }}">{{ i }}</label>{% endfor %}</div><button class="btn">Save opportunity</button></form></div>"""
 MENTORSHIP = r"""<section class="hero"><div class="eyebrow">Peer guidance</div><h1>Mentorship at Nexora</h1><p>Connect with college students for guidance on academics, applications, research, technology and career exploration. Mentors are student peers, not official admissions representatives.</p><p><b>Proposed fee: $5 from the student and $5 from the mentor per confirmed mentorship booking.</b></p><p class="muted" style="color:#eee">Payments are not active yet. A payment provider and refund/verification policies must be configured before anyone is charged.</p><a class="btn white" href="{{ url_for('mentor_apply') }}">Apply to become a mentor</a></section>
-<div class="head"><div><h2>Student mentors</h2><div class="muted">Only approved mentor profiles appear here.</div></div></div><div class="grid">{% for m in mentors %}<article class="card"><span class="pill">{{ m.status }}</span><h3>{{ m.name }}</h3><div class="org">{{ m.university }} · {{ m.study_level }}</div><div class="meta"><div><b>Expertise:</b> {{ m.expertise }}</div><div>{{ m.bio }}</div></div><div class="bottom"><a class="btn" href="{{ url_for('mentor_request',mentor_id=m.user_id) }}">Request mentorship</a></div></article>{% else %}<div class="empty">No mentors have been approved yet. College students can apply to join the mentor community.</div>{% endfor %}</div><p class="note">Mentor applications are reviewed before profiles become public. Never share passwords, sensitive documents, or pay anyone who promises guaranteed admission, scholarships or selection.</p>"""
+<div class="head"><div><h2>Student mentors</h2><div class="muted">Only approved mentor profiles appear here.</div></div></div><div class="grid">{% for m in mentors %}<article class="card"><span class="pill">{{ m.status }}</span><h3>{{ m.name }}</h3><div class="org">{{ m.university }} · {{ m.study_level }}</div><div class="meta"><div><b>Expertise:</b> {{ m.expertise }}</div><div>{{ m.bio }}</div></div><div class="bottom"><a class="btn" href="{{ url_for('mentor_request',mentor_id=m.user_id) }}">Request mentorship</a></div></article>{% else %}<div class="empty">No mentors have been approved yet. College students can apply to join the mentor community.</div>{% endfor %}</div><p class="note">Mentor applications are reviewed before profiles become public. Never share passwords, sensitive documents, or pay anyone who promises guaranteed admission, scholarships, or selection.</p>"""
 MENTOR_APPLY = r"""<div class="panel"><h1>Apply to become a Nexora mentor</h1><p class="muted">For college/university students who want to support younger learners. Applications are reviewed before profiles go public.</p><p><b>Mentor platform fee:</b> $5 per confirmed booking (proposed; not charged until payment setup is active).</p><form class="stack" method="post"><label>College / university<input name="university" required maxlength="160"></label><label>Study level and year<input name="study_level" placeholder="e.g. Undergraduate, 2nd year" required maxlength="100"></label><label>Areas you can help with<input name="expertise" placeholder="e.g. CS, scholarships, study skills" required maxlength="200"></label><label>Short introduction and relevant experience<textarea name="bio" rows="5" maxlength="1200" required></textarea></label><button class="btn">Submit mentor application</button></form></div>"""
 MENTOR_REQUEST = r"""<div class="panel"><h1>Request mentorship</h1><p class="muted">Requesting does not charge you. Payment is not enabled yet; both parties must see and agree to the fee before a booking is confirmed.</p><div class="meta"><div><b>Mentor:</b> {{ mentor.name }}</div><div><b>College:</b> {{ mentor.university }}</div><div><b>Expertise:</b> {{ mentor.expertise }}</div></div><p><b>Proposed platform fee:</b> $5 for the student and $5 for the mentor per confirmed booking.</p><form class="stack" method="post"><label>What would you like help with?<input name="topic" required maxlength="160" placeholder="e.g. Beginner Python or scholarship planning"></label><label>Message to the mentor<textarea name="message" rows="4" required maxlength="1200"></textarea></label><button class="btn">Send mentorship request</button></form></div>"""
+
 def page(content, title=None, **context):
     values={"categories": CATEGORIES, "interests": INTERESTS}
     values.update(context)
@@ -1165,8 +1164,7 @@ def home():
     if chosen_interest: rows=[o for o in rows if chosen_interest in o["interests"]]
     rows.sort(key=(lambda o:(o["category"],o["title"].lower())) if sort=="category" else (lambda o:o["title"].lower()))
     return page(HOME, items=rows, q=request.args.get("q",""), category=category, sort=sort, chosen_interest=chosen_interest)
-
-@app.route("/opportunity/<int:item_id>")
+    @app.route("/opportunity/<int:item_id>")
 def opportunity(item_id):
     o=next((x for x in all_items() if int(x["id"])==item_id),None)
     if not o: return redirect(url_for("home"))
@@ -1219,7 +1217,8 @@ def logout():
 @app.route("/profile")
 @login_required
 def profile():
-    with db() as con: user=con.execute("SELECT * FROM users WHERE id=?",(session["user_id"],)).fetchone()return page(PROFILE, title="My profile", user=user)
+    with db() as con: user=con.execute("SELECT * FROM users WHERE id=?",(session["user_id"],)).fetchone()
+    return page(PROFILE, title="My profile", user=user)
 
 @app.route("/eligibility", methods=["GET","POST"])
 def eligibility():
@@ -1238,7 +1237,7 @@ def eligibility():
             if chosen_categories and o["category"] not in chosen_categories: continue
             interest_overlap=set(chosen_interests).intersection(o["interests"])
             level=(o.get("level") or "").lower()
-            # Simple age/education warnings; the official organizer still makes the final decision.
+      #Simple age/education warnings; the official organizer still makes the final decision.
             if age<13 and any(w in level for w in ["undergraduate","university","graduate"]): continue
             if education=="High school student" and any(w in level for w in ["graduate student","postgraduate only"]): continue
             reason=[]
@@ -1260,8 +1259,7 @@ def newsletter():
         flash("You're subscribed. Email delivery activates once the site owner configures email sending.","info")
         return redirect(url_for("newsletter"))
     return page(NEWSLETTER, title="Newsletter")
-
-@app.route("/admin", methods=["GET","POST"])
+            @app.route("/admin", methods=["GET","POST"])
 def admin():
     admin_key=os.environ.get("NEXORA_ADMIN_KEY")
     supplied=request.values.get("key","")
@@ -1276,14 +1274,12 @@ def admin():
             selected=[x for x in request.form.getlist("interests") if x in INTERESTS]
             new={"title":title,"organization":request.form.get("organization","").strip(),"category":request.form.get("category","Competitions"),"location":request.form.get("location","Online / global"),"level":request.form.get("level",""),"funding":request.form.get("funding","See official page"),"deadline":request.form.get("deadline","Check official page"),"status":"Check official page","eligibility":request.form.get("eligibility",""),"official_url":url,"interests":selected or ["General"]}
             with db() as con:
-                con.execute("""INSERT INTO opportunities(title,organization,category,location (title,organization,category,location,level,funding,deadline,status,eligibility,official_url,interests)
+                con.execute("""INSERT INTO opportunities(title,organization,category,location,level,funding,deadline,status,eligibility,official_url,interests)
                     VALUES(?,?,?,?,?,?,?,?,?,?,?)""",(new["title"],new["organization"],new["category"],new["location"],new["level"],new["funding"],new["deadline"],new["status"],new["eligibility"],new["official_url"],json.dumps(new["interests"])))
             notify_new_listing(new)
             flash("Opportunity saved. You did not need to replace app.py.","info")
             return redirect(url_for("admin",key=admin_key))
     return page(ADMIN, title="Add opportunity", key=admin_key)
-
-
 @app.route("/mentorship")
 def mentorship():
     with db() as con:
@@ -1312,7 +1308,7 @@ def mentor_apply():
                 flash("Your mentor application was submitted for review. It is not public yet.", "info")
                 return redirect(url_for("mentorship"))
             except sqlite3.Error:
-              flash("We couldn't save the application. Please try again.", "error")
+                flash("We couldn't save the application. Please try again.", "error")
     return page(MENTOR_APPLY, title="Become a mentor")
 
 @app.route("/mentorship/request/<int:mentor_id>", methods=["GET", "POST"])
@@ -1347,4 +1343,6 @@ def health():
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=int(os.environ.get("PORT","5000")),debug=False)
-                                      
+                                           
+
+        
