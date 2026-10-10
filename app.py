@@ -49,7 +49,6 @@ DATA = [
 ("Regeneron Science Talent Search","Society for Science","Competition","United States","High-school seniors","Major research awards","2026 cycle deadline listed as 5 Nov 2026; verify rules","U.S. high-school seniors meeting citizenship/residency requirements; not global direct entry","https://www.societyforscience.org/regeneron-sts/"),
 ("National High School Big Data & AI Challenge","STEM Fellowship","Competition","Canada / international details vary","High school / CEGEP","Research and conference opportunities","Registration deadline listed as 18 Oct 2026; confirm fees","High school/CEGEP; participation may involve fees and travel","https://www.stemfellowship.org/hsbdc/2026-27"),
 ("International Astronomy and Astrophysics Competition","IAAC","Competition","International / online","School and university students","Awards and certificates vary","Check current annual cycle","International participants; age and round rules apply","https://iaac.space/"),
-("NASA Space Apps Challenge","NASA and global local hosts","Competition","Global / hybrid","All ages; team rules apply","Awards and recognition vary","Annual event; check next registration","Participation depends on local/global event rules and internet access","https://www.spaceappschallenge.org/"),
 
 # 20 INTERNSHIPS / RESEARCH / LEARNING PROGRAMS
 ("Google Summer of Code","Google","Internship / Research","Global / remote","18+ contributors","Stipend for accepted contributors","Annual cycle; check official page","Open-source mentored project program, not conventional employment","https://summerofcode.withgoogle.com/"),
@@ -92,4 +91,5 @@ PAGE = r"""<!doctype html>
 :root{--ink:#17213c;--muted:#64708b;--bg:#f5f7fc;--purple:#6c4cf1;--line:#e5e9f3}*{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 header{position:sticky;top:0;z-index:5;background:#ffffffed;border-bottom:1px solid var(--line)}.nav{max-width:1160px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-weight:900;font-size:22px;color:var(--purple)}.logo span{color:var(--ink)}.muted{color:var(--muted);font-size:13px;line-height:1.5}
-main{max-width:1160px;margin:auto;padding:24px 20px 55px}.hero{background:linear-gradient(125deg,#1d2751,#4934a4 62%,#8466ff);border-radius:26px
+main{max-width:1160px;margin:auto;padding:24px 20px 55px}.hero{background:linear-gradient(125deg,#1d2751,#4934a4 62%,#8466ff);border-radius:26px;color:white;padding:clamp(25px,6vw,60px)}
+.eyebrow{text-transform:uppercase;font-weight:800;letter-spacing:2px;font-size:11px;opacity:.8}.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.05;letter-spacing:-1.7px;max-width:720px;margin:16px 0}.hero p{max-width:650px;line-height:1.7;color:#e2e4ff}
